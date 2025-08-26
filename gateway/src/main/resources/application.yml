@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service
+          uri: http://localhost:9000
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        - id: user-service
+          uri: http://localhost:9001
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+
+        - id: app-service
+          uri: http://localhost:9002
+          predicates:
+            - Path=/app/**
+          filters:
+            - StripPrefix=1
+
+        - id: permission-service
+          uri: http://localhost:9003
+          predicates:
+            - Path=/permission/**
+          filters:
+            - StripPrefix=1
