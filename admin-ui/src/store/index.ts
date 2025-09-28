@@ -1,6 +1,6 @@
-import { createStore } from 'pinia'
+import { defineStore } from 'pinia'
 
-export default createStore({
+export const useUserStore = defineStore('user', {
   state: () => ({
     user: null,
     token: localStorage.getItem('token') || ''

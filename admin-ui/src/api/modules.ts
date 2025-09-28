@@ -96,3 +96,21 @@ export const authApi = {
     return api.get('/auth/user')
   }
 }
+
+// Log API
+export const logApi = {
+  // Get log list
+  getLogs(params: any) {
+    return api.get('/log/logs', { params })
+  },
+  
+  // Get log by ID
+  getLog(id: number) {
+    return api.get(`/log/logs/${id}`)
+  },
+  
+  // Delete log
+  deleteLog(id: number) {
+    return api.delete(`/log/logs/${id}`)
+  }
+}

@@ -60,16 +60,16 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store'
+import { useUserStore } from '@/store'
 import { useRouter } from 'vue-router'
 
-const store = useStore()
+const userStore = useUserStore()
 const router = useRouter()
 
-const user = store.state.user
+const user = userStore.user
 
 const handleLogout = () => {
-  store.logout()
+  userStore.logout()
   router.push('/login')
 }
 </script>
